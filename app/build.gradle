@@ -27,6 +27,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.googlecode.json-simple:json-simple:1.1'
     compile 'com.beust:jcommander:1.7'
+    compile 'com.google.android.gms:play-services:8.4.0'
 
 
 }
