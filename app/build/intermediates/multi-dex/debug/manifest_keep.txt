@@ -1,0 +1,7 @@
+-keep class io.github.dcheong.yelptest.MainActivity { <init>(); }
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+-keep public class * extends java.lang.annotation.Annotation {
+    *;
+}

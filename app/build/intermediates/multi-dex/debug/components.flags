@@ -1,0 +1,26 @@
+-injars 'C:\Users\Douglas\AndroidStudioProjects\YelpTest\app\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
+-outjars 'C:\Users\Douglas\AndroidStudioProjects\YelpTest\app\build\intermediates\multi-dex\debug\componentClasses.jar'
+
+-libraryjars 'C:\Users\Douglas\Documents\Android SDK\sdk\build-tools\22.0.1\lib\shrinkedAndroid.jar'
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontwarn
+-printconfiguration 'C:\Users\Douglas\AndroidStudioProjects\YelpTest\app\build\intermediates\multi-dex\debug\components.flags'
+
+
+-keep class io.github.dcheong.yelptest.MainActivity {
+    <init>();
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
