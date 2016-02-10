@@ -3104,6 +3104,7 @@ containing a value of this type.
         public static final int create_calendar_message=0x7f070049;
         public static final int create_calendar_title=0x7f07004a;
         public static final int decline=0x7f07004b;
+        public static final int google_app_id=0x7f07004c;
         public static final int mr_media_route_button_content_description=0x7f070030;
         public static final int mr_media_route_chooser_searching=0x7f070031;
         public static final int mr_media_route_chooser_title=0x7f070032;
@@ -3118,8 +3119,8 @@ containing a value of this type.
         public static final int place_autocomplete_clear_button=0x7f07003b;
         public static final int place_autocomplete_search_hint=0x7f07003c;
         public static final int status_bar_notification_info_overflow=0x7f07003d;
-        public static final int store_picture_message=0x7f07004c;
-        public static final int store_picture_title=0x7f07004d;
+        public static final int store_picture_message=0x7f07004d;
+        public static final int store_picture_title=0x7f07004e;
         public static final int wallet_buy_button_place_holder=0x7f07003e;
     }
     public static final class style {

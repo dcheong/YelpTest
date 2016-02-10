@@ -29,6 +29,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
+    private String loc = null;
     @Bind(R.id.testButton)
     Button tButton;
     @Bind(R.id.resultsText)
@@ -46,15 +47,26 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         StrictMode.setThreadPolicy(policy);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        GoogleApiClient mGoogleApiClient = null;
         // Create an instance of GoogleAPIClient.
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+        final GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
         mGoogleApiClient.connect();
-        System.out.println("connected to google play api");
+
+        ButterKnife.bind(this);
+        tButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YelpAPI yelpAPI = new YelpAPI();
+                findLocation(mGoogleApiClient);
+                String resultString = jArraytoString(yelpAPI.queryAPI(searchLocation.getText().toString(), loc));
+                results.setText(resultString);
+            }
+        });
+    }
+    public void findLocation(GoogleApiClient mGoogleApiClient2) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -65,26 +77,21 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        if(mLastLocation!=null) {
-            System.out.println(String.valueOf(mLastLocation.getLatitude()) + " " + String.valueOf(mLastLocation.getLongitude()));
-        }
-        else {
-            System.out.println("Location is null!!");
-        }
-        ButterKnife.bind(this);
-        tButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                YelpAPI yelpAPI = new YelpAPI();
-                String resultString = jArraytoString(yelpAPI.queryAPI(searchLocation.getText().toString()));
-                results.setText(resultString);
+        if(mGoogleApiClient2.isConnected()) {
+            Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient2);
+            if (mLastLocation != null) {
+                loc = String.valueOf(mLastLocation.getLatitude()) + "," + String.valueOf(mLastLocation.getLongitude());
+                System.out.println("Last location is " + loc);
+            } else {
+                loc = null;
+                System.out.println("null location");
             }
-        });
+        }
     }
 
+
     public String jArraytoString(JSONArray jsonArray) {
-        String output = new String();
+        String output = null;
         for(int i = 0; i < jsonArray.size(); i++) {
             JSONObject object = (JSONObject) jsonArray.get(i);
             System.out.println(object.get("name"));
@@ -116,11 +123,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
+        System.out.println("connection failed");
     }
 
     @Override
     public void onConnected(Bundle bundle) {
+        System.out.println("connected!");
 
     }
 
