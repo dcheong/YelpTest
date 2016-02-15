@@ -20,17 +20,6 @@
         android:id="@+id/testButton"
         android:layout_marginBottom="65dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/resultsText"
-        android:layout_alignEnd="@+id/resultsText" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/resultsText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/testButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -43,4 +32,44 @@
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/testButton"
         android:layout_toStartOf="@+id/testButton" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurantImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/testButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurantName"
+        android:layout_alignTop="@+id/restaurantImage"
+        android:textColor="#000000" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="next"
+        android:id="@+id/next"
+        android:layout_alignBottom="@+id/restaurantImage"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/back"
+        android:layout_alignTop="@+id/next"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="gone" />
 </RelativeLayout>

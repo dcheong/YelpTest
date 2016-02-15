@@ -431,6 +431,7 @@ android/support/annotation/Keep.class
 android/support/v7/widget/RecyclerView$5.class
 com/google/android/gms/internal/zzfk.class
 android/support/v4/view/ViewCompatGingerbread.class
+io/github/dcheong/yelptest/Restaurant.class
 com/google/android/gms/location/FusedLocationProviderApi.class
 com/google/android/gms/dynamic/zzg$zza.class
 android/support/v4/view/ViewPropertyAnimatorListener.class
@@ -442,6 +443,7 @@ com/google/android/gms/games/leaderboard/LeaderboardScore.class
 com/google/android/gms/internal/zzjt.class
 com/google/android/gms/auth/api/signin/internal/zzq.class
 com/google/android/gms/common/data/AbstractDataBuffer.class
+io/github/dcheong/yelptest/MainActivity$3.class
 com/google/android/gms/wallet/WalletConstants$CardNetwork.class
 com/google/android/gms/internal/zzgq.class
 android/support/v4/view/animation/LookupTableInterpolator.class
@@ -503,6 +505,7 @@ android/support/v7/app/ActionBar$Tab.class
 com/google/android/gms/common/api/Scope.class
 com/google/android/gms/ads/internal/client/SearchAdRequestParcel.class
 android/support/design/widget/ValueAnimatorCompat$AnimatorUpdateListener.class
+io/github/dcheong/yelptest/MainActivity$2.class
 com/google/android/gms/maps/GoogleMap$OnMyLocationChangeListener.class
 com/google/android/gms/internal/zzau.class
 butterknife/OnTextChanged$Callback.class

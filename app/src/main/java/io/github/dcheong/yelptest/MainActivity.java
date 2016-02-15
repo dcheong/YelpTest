@@ -2,6 +2,8 @@ package io.github.dcheong.yelptest;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -15,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.beust.jcommander.JCommander;
@@ -25,18 +28,30 @@ import com.google.android.gms.location.LocationServices;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
     private String loc = null;
+    private Restaurant[] restaurants = new Restaurant[10];
+    private int counter = 0;
     @Bind(R.id.testButton)
     Button tButton;
-    @Bind(R.id.resultsText)
-    TextView results;
     @Bind(R.id.textLocation)
     EditText searchLocation;
-
+    @Bind(R.id.next)
+    Button next;
+    @Bind(R.id.back)
+    Button back;
+    @Bind(R.id.restaurantImage)
+    ImageView restaurantImage;
+    @Bind(R.id.restaurantName)
+    TextView restaurantName;
     @Override
 
 
@@ -61,13 +76,70 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             public void onClick(View v) {
                 YelpAPI yelpAPI = new YelpAPI();
                 findLocation(mGoogleApiClient);
-                String resultString = jArraytoString(yelpAPI.queryAPI(searchLocation.getText().toString(), loc));
-                results.setText(resultString);
+                try {
+                    createRestaurants(yelpAPI.queryAPI(searchLocation.getText().toString(), loc));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                next.setVisibility(View.VISIBLE);
+                back.setVisibility(View.VISIBLE);
+            }
+        });
+        next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                nextRestaurant();
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                backRestaurant();
             }
         });
     }
+    public void initRestaurantView() {
+        restaurantImage.setImageBitmap(loadImageFromURL(restaurants[counter].getImageURL()));
+        restaurantName.setText(restaurants[counter].getName());
+    }
+    public void nextRestaurant() {
+        if(counter<restaurants.length-1) {
+            counter++;
+            restaurantImage.setImageBitmap(loadImageFromURL(restaurants[counter].getImageURL()));
+            restaurantName.setText(restaurants[counter].getName());
+        }
+
+    }
+
+    public void backRestaurant() {
+        if(counter>0) {
+            counter--;
+            restaurantImage.setImageBitmap(loadImageFromURL(restaurants[counter].getImageURL()));
+            restaurantName.setText(restaurants[counter].getName());
+        }
+    }
+
+    public Bitmap loadImageFromURL(URL myFileUrl){
+        try {
+
+            HttpURLConnection conn =
+                    (HttpURLConnection) myFileUrl.openConnection();
+            conn.setDoInput(true);
+            conn.connect();
+
+            InputStream is = conn.getInputStream();
+            return BitmapFactory.decodeStream(is);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public void findLocation(GoogleApiClient mGoogleApiClient2) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -90,14 +162,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
 
-    public String jArraytoString(JSONArray jsonArray) {
-        String output = null;
+    public void createRestaurants(JSONArray jsonArray) throws MalformedURLException {
+        String output = new String();
         for(int i = 0; i < jsonArray.size(); i++) {
             JSONObject object = (JSONObject) jsonArray.get(i);
-            System.out.println(object.get("name"));
-            output = output + "\n" + object.get("name");
+            Restaurant restaurant = new Restaurant(object);
+            restaurants[i] = restaurant;
         }
-        return output;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

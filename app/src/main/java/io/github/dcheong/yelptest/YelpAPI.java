@@ -130,7 +130,7 @@ public class YelpAPI {
             System.out.println(searchResponseJSON);
             System.exit(1);
         }
-
+        System.out.println(response);
         JSONArray businesses = (JSONArray) response.get("businesses");
         JSONObject firstBusiness = (JSONObject) businesses.get(0);
         String firstBusinessID = firstBusiness.get("id").toString();
