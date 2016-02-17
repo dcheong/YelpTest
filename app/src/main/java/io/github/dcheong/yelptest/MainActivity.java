@@ -1,6 +1,7 @@
 package io.github.dcheong.yelptest;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -38,16 +39,12 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
     private String loc = null;
-    private Restaurant[] restaurants = new Restaurant[10];
+    public static Restaurant[] restaurants = new Restaurant[20];
     private int counter = 0;
     @Bind(R.id.testButton)
     Button tButton;
     @Bind(R.id.textLocation)
     EditText searchLocation;
-    @Bind(R.id.next)
-    Button next;
-    @Bind(R.id.back)
-    Button back;
     @Bind(R.id.restaurantImage)
     ImageView restaurantImage;
     @Bind(R.id.restaurantName)
@@ -81,61 +78,16 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
-                next.setVisibility(View.VISIBLE);
-                back.setVisibility(View.VISIBLE);
-            }
-        });
-        next.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                nextRestaurant();
-            }
-        });
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                backRestaurant();
+                startWheel();
+
             }
         });
     }
-    public void initRestaurantView() {
-        restaurantImage.setImageBitmap(loadImageFromURL(restaurants[counter].getImageURL()));
-        restaurantName.setText(restaurants[counter].getName());
-    }
-    public void nextRestaurant() {
-        if(counter<restaurants.length-1) {
-            counter++;
-            restaurantImage.setImageBitmap(loadImageFromURL(restaurants[counter].getImageURL()));
-            restaurantName.setText(restaurants[counter].getName());
-        }
-
+    public void startWheel() {
+        Intent intent = new Intent(MainActivity.this, WheelActivity.class);
+        startActivity(intent);
     }
 
-    public void backRestaurant() {
-        if(counter>0) {
-            counter--;
-            restaurantImage.setImageBitmap(loadImageFromURL(restaurants[counter].getImageURL()));
-            restaurantName.setText(restaurants[counter].getName());
-        }
-    }
-
-    public Bitmap loadImageFromURL(URL myFileUrl){
-        try {
-
-            HttpURLConnection conn =
-                    (HttpURLConnection) myFileUrl.openConnection();
-            conn.setDoInput(true);
-            conn.connect();
-
-            InputStream is = conn.getInputStream();
-            return BitmapFactory.decodeStream(is);
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
 
     public void findLocation(GoogleApiClient mGoogleApiClient2) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

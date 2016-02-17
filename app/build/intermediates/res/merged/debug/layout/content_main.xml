@@ -16,7 +16,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="press me baby"
+        android:text="go"
         android:id="@+id/testButton"
         android:layout_marginBottom="65dp"
         android:layout_alignParentBottom="true"

@@ -16,6 +16,10 @@
     <init>();
 }
 
+-keep class io.github.dcheong.yelptest.WheelActivity {
+    <init>();
+}
+
 -keep class com.google.android.gms.ads.AdActivity {
     <init>();
 }

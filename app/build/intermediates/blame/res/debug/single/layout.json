@@ -76,6 +76,10 @@
         "source": "C:\\Users\\Douglas\\AndroidStudioProjects\\YelpTest\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_layout_snackbar.xml"
     },
     {
+        "merged": "C:\\Users\\Douglas\\AndroidStudioProjects\\YelpTest\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_wheel.xml",
+        "source": "C:\\Users\\Douglas\\AndroidStudioProjects\\YelpTest\\app\\src\\main\\res\\layout\\activity_wheel.xml"
+    },
+    {
         "merged": "C:\\Users\\Douglas\\AndroidStudioProjects\\YelpTest\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "C:\\Users\\Douglas\\AndroidStudioProjects\\YelpTest\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_list_menu_item_icon.xml"
     },

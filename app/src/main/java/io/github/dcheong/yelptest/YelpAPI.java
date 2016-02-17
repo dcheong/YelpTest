@@ -30,7 +30,7 @@ public class YelpAPI {
     private static final String API_HOST = "api.yelp.com";
     private static final String DEFAULT_TERM = "dinner";
     private static final String DEFAULT_LOCATION = "Atlanta, GA";
-    private static final int SEARCH_LIMIT = 10;
+    private static final int SEARCH_LIMIT = 20;
     private static final String SEARCH_PATH = "/v2/search";
     private static final String BUSINESS_PATH = "/v2/business";
 
@@ -132,15 +132,6 @@ public class YelpAPI {
         }
         System.out.println(response);
         JSONArray businesses = (JSONArray) response.get("businesses");
-        JSONObject firstBusiness = (JSONObject) businesses.get(0);
-        String firstBusinessID = firstBusiness.get("id").toString();
-        System.out.println(String.format(
-                "%s businesses found, querying business info for the top result \"%s\" ...",
-                businesses.size(), firstBusinessID));
-
-        // Select the first business and display business details
-        String businessResponseJSON = searchByBusinessId(firstBusinessID.toString());
-        System.out.println(String.format("Result for business \"%s\" found:", firstBusinessID));
         return (businesses);
     }
 }

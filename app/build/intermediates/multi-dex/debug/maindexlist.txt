@@ -443,7 +443,6 @@ com/google/android/gms/games/leaderboard/LeaderboardScore.class
 com/google/android/gms/internal/zzjt.class
 com/google/android/gms/auth/api/signin/internal/zzq.class
 com/google/android/gms/common/data/AbstractDataBuffer.class
-io/github/dcheong/yelptest/MainActivity$3.class
 com/google/android/gms/wallet/WalletConstants$CardNetwork.class
 com/google/android/gms/internal/zzgq.class
 android/support/v4/view/animation/LookupTableInterpolator.class
@@ -476,6 +475,7 @@ com/google/android/gms/appdatasearch/GetRecentContextCall$Response.class
 com/google/android/gms/location/places/ui/PlacePicker.class
 android/support/v4/app/FragmentActivity$1.class
 android/support/design/widget/AnimationUtils.class
+io/github/dcheong/yelptest/WheelActivity$1.class
 com/google/android/gms/internal/zzlg.class
 android/support/v4/app/BackStackRecord.class
 android/support/v4/widget/SlidingPaneLayout.class
@@ -505,7 +505,6 @@ android/support/v7/app/ActionBar$Tab.class
 com/google/android/gms/common/api/Scope.class
 com/google/android/gms/ads/internal/client/SearchAdRequestParcel.class
 android/support/design/widget/ValueAnimatorCompat$AnimatorUpdateListener.class
-io/github/dcheong/yelptest/MainActivity$2.class
 com/google/android/gms/maps/GoogleMap$OnMyLocationChangeListener.class
 com/google/android/gms/internal/zzau.class
 butterknife/OnTextChanged$Callback.class
@@ -586,6 +585,7 @@ android/support/v4/view/ViewCompatICSMr1.class
 com/google/android/gms/appindexing/AppIndexApi.class
 com/google/android/gms/internal/zzgu.class
 com/google/android/gms/appindexing/AppIndexApi$AppIndexingLink.class
+io/github/dcheong/yelptest/WheelActivity.class
 com/google/android/gms/internal/zzge.class
 butterknife/OnEditorAction.class
 com/google/android/gms/wearable/internal/GetConfigResponse.class
@@ -835,6 +835,7 @@ com/google/ads/mediation/customevent/CustomEventBanner.class
 com/google/android/gms/dynamic/zzg.class
 com/google/android/gms/common/api/CommonStatusCodes.class
 com/google/android/gms/gcm/Task.class
+io/github/dcheong/yelptest/WheelActivity$2.class
 com/google/android/gms/internal/zzdr.class
 com/google/android/gms/internal/zzlf.class
 android/support/design/widget/AppBarLayout$LayoutParams$ScrollFlags.class
