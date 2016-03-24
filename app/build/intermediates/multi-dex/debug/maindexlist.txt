@@ -475,7 +475,6 @@ com/google/android/gms/appdatasearch/GetRecentContextCall$Response.class
 com/google/android/gms/location/places/ui/PlacePicker.class
 android/support/v4/app/FragmentActivity$1.class
 android/support/design/widget/AnimationUtils.class
-io/github/dcheong/yelptest/WheelActivity$1.class
 com/google/android/gms/internal/zzlg.class
 android/support/v4/app/BackStackRecord.class
 android/support/v4/widget/SlidingPaneLayout.class
@@ -835,7 +834,6 @@ com/google/ads/mediation/customevent/CustomEventBanner.class
 com/google/android/gms/dynamic/zzg.class
 com/google/android/gms/common/api/CommonStatusCodes.class
 com/google/android/gms/gcm/Task.class
-io/github/dcheong/yelptest/WheelActivity$2.class
 com/google/android/gms/internal/zzdr.class
 com/google/android/gms/internal/zzlf.class
 android/support/design/widget/AppBarLayout$LayoutParams$ScrollFlags.class
@@ -950,6 +948,7 @@ com/google/android/gms/ads/internal/overlay/zzc.class
 android/support/v4/widget/SimpleCursorAdapter.class
 com/google/android/gms/wallet/firstparty/GetBuyFlowInitializationTokenRequest.class
 android/support/v4/media/MediaBrowserCompat$ConnectionCallback.class
+io/github/dcheong/yelptest/MainPage.class
 com/google/android/gms/drive/query/Query.class
 android/support/annotation/UiThread.class
 com/google/android/gms/wearable/DataApi$DataItemResult.class

@@ -1,6 +1,18 @@
 [
     {
+        "merged": "D:\\CodeWork\\Android Dev\\YelpTest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_history_black_48dp.png",
+        "source": "D:\\CodeWork\\Android Dev\\YelpTest\\app\\src\\main\\res\\mipmap-hdpi\\ic_history_black_48dp.png"
+    },
+    {
+        "merged": "D:\\CodeWork\\Android Dev\\YelpTest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\CodeWork\\Android Dev\\YelpTest\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
         "merged": "C:\\Users\\Douglas\\AndroidStudioProjects\\YelpTest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_launcher.png",
         "source": "C:\\Users\\Douglas\\AndroidStudioProjects\\YelpTest\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\CodeWork\\Android Dev\\YelpTest\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_search_black_48dp.png",
+        "source": "D:\\CodeWork\\Android Dev\\YelpTest\\app\\src\\main\\res\\mipmap-hdpi\\ic_search_black_48dp.png"
     }
 ]
